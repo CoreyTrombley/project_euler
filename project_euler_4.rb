@@ -5,13 +5,15 @@
 # Find the largest palindrome made from the product
 # of two 3-digit numbers.
 
+# mine
+
 def pal
   f = (100..999).to_a
   a = []
   (1..899).each do |i|
-    (1..899).each do |j|
+    (i..899).each do |j|
       num = f[i] * f[j]
-      if num == num.to_s.reverse.to_i
+      if num.to_s == num.to_s.reverse
         a << num
       end
       j += 1

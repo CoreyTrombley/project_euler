@@ -12,7 +12,9 @@ def pal
   a = []
   (1..899).each do |i|
     (i..899).each do |j|
+
       num = f[i] * f[j]
+      puts "#{f[i]} * #{f[j]} = #{num}"
       if num.to_s == num.to_s.reverse
         a << num
       end

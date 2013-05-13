@@ -14,9 +14,11 @@ def fib(number)
       last_num = fib_num[-1] + fib_num[-2]
     end
   end
+
   fib_num.delete fib_num.last 
+
   fib_num.each do |num|
-    if num % 2 ==0
+    if num % 2 == 0
       even_num << num
     end
   end

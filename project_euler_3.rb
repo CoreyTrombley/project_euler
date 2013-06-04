@@ -2,33 +2,37 @@
 # What is the largest prime factor of the
 # number 600851475143 ?
 
-# def prime(num)
-#   (20).times do
-#     puts "next round"
-#     for x in (2..num-1).to_a.reverse
-#       if num % x == 0
-#         puts x
-#         num = x
-#         break
-#       end
-#     end
-#   end
-#   return num
-# end
+def primer(number)
+  _start = Time.now
+  result = number
 
-# def bd(number)
-#   (1..number/4.5).to_a.reverse.each do |num|
-#     if num ==1
-#       puts "prime??"
-#       return number
-#     elsif number % num == 0
-#       return num
-#     end
-#     puts num
-#   end
-# end
+  if number % 2 == 0
+    divisor = number/2
+  else
+    divisor = number/3
+  end
 
-# puts "What number?"
-# num = gets.chomp.to_i
 
-# prime(num)
+  while divisor > 1
+    if number % divisor == 0
+      result = divisor
+      number = divisor
+      
+      if number % 2 == 0
+        divisor = number/2
+        puts "the divisor was even and now is #{divisor}"
+      else
+        divisor = number/3
+        puts "the divisor was odd and now is #{divisor}"
+      end
+
+    else
+      divisor -= 1
+      puts "the divisor is #{divisor}"
+    end
+  end
+
+  _stop = Time.now
+  puts result
+  puts "Function completed in #{_stop-_start} seconds!"
+end

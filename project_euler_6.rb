@@ -13,13 +13,12 @@
 #338350
 
 def sum(n)
+  sqr = sqr(n)
   array = []
   while n > 0
     array << (n ** 2)
     n -= 1
   end
-  sqr = sqr(n)
-  binding.pry
   diff(array.reduce(:+),sqr) 
 end
 

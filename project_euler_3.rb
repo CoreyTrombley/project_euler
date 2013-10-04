@@ -2,37 +2,18 @@
 # What is the largest prime factor of the
 # number 600851475143 ?
 
-def primer(number)
-  _start = Time.now
-  result = number
-
-  if number % 2 == 0
-    divisor = number/2
-  else
-    divisor = number/3
-  end
-
-
-  while divisor > 1
-    if number % divisor == 0
-      result = divisor
-      number = divisor
-      
-      if number % 2 == 0
-        divisor = number/2
-        puts "the divisor was even and now is #{divisor}"
-      else
-        divisor = number/3
-        puts "the divisor was odd and now is #{divisor}"
-      end
-
-    else
-      divisor -= 1
-      puts "the divisor is #{divisor}"
+@factors = []
+def prime_factors(number)
+  i = 2
+  until i > number
+    if number % i == 0
+      @factors << i
+      number = number / i
+      prime_factors(number)
     end
+    i += 1
   end
-
-  _stop = Time.now
-  puts result
-  puts "Function completed in #{_stop-_start} seconds!"
 end
+
+prime_factors(600851475143)
+puts "the largest factor is: #{@factors.last}"
